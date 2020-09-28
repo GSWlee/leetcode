@@ -30,3 +30,29 @@ func connect(root *Node) *Node {
 	   return root
    }
 }
+
+
+// 方法二，降低时间复杂度
+func connect(root *Node) *Node {
+    if root==nil{
+        return rootß
+    }else{
+        q:=[]*Node{root}
+        for len(q)>0{
+            temp:=q
+            q=nil
+            for i,_:=range(temp){
+                if i+1<len(temp){
+                    temp[i].Next=temp[i+1]
+                }
+                if temp[i].Left!=nil{
+                    q=append(q,temp[i].Left)
+                }
+                if temp[i].Right!=nil{
+                    q=append(q,temp[i].Right)
+                }
+            }
+        }
+        return root
+    }
+}
