@@ -17,3 +17,8 @@ func reverseLeftWords(s string, n int) string {
     s=reverse(s,len(s)-n,len(s)-1)
     return s
 }
+
+///
+func reverseLeftWords(s string, n int) string {
+    return s[n:]+s[:n]
+}
