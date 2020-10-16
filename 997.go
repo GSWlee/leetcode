@@ -14,3 +14,23 @@ func sortedSquares(A []int) []int {
     }
     return A
 }
+
+//利用数组的有序性，双指针
+func sortedSquares(A []int) []int {
+    n:=len(A)
+    i,j,pos:=0,n-1,n-1
+    ans:=make([]int,n)
+    for i<=j{
+        if A[i]*A[i]>A[j]*A[j]{
+            ans[pos]=A[i]*A[i]
+            pos--
+            i++
+        }else{
+            ans[pos]=A[j]*A[j]
+            pos--
+            j--
+        }
+    }
+    return ans
+}
+
