@@ -28,3 +28,34 @@ public:
         return ans;
     }
 };
+
+class Solution {
+public:
+    string reverseWords(string s) {
+        int start=0;
+        for(int j =0;j<s.length();j++){
+            if(s[j]==' '){
+                int end =j-1;
+                while(start<end){
+                    auto temp=s[start];
+                    s[start]=s[end];
+                    s[end]=temp;
+                    start++;
+                    end--;
+                }
+                start=j+1;
+            }else{
+                continue;
+            }
+        }
+        int end =s.length()-1;
+        while(start<end){
+            auto temp=s[start];
+            s[start]=s[end];
+            s[end]=temp;
+            start++;
+            end--;
+        }
+        return s;
+    }
+};
